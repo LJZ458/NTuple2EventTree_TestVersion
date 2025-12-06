@@ -5,6 +5,17 @@ This program accepts a settings file that includes thresholds, resolutions, etc,
 
 This program was written by Vinzenz Bildstein.
 
+
+
+Further modification was written by Jizhong Liu.
+
+
+Modification includes analysis tree generation for geant4 test version of QED/RCMP DSSSD silicon detectors.
+Also includes CEDAR conversion electron detector modification which is still under development.
+
+
+For users not interested in these two detectors, please do not use this package as it is still under testing.
+
 -----------------------------------------
  Installation
 -----------------------------------------
