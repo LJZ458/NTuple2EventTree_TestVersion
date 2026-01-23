@@ -299,6 +299,7 @@ bool Converter::Run() {
 							break;
 					}
 					if(fSystemID==9000){
+						std::cout<<"RCS Detector Found!!!"<<std::endl;
 					
 						//rcmp hits
 						//if(fDetNumber>=0 && fDetNumber<1024){
@@ -388,7 +389,7 @@ bool Converter::Run() {
 						channel2 = TChannel::GetChannel(address2);
 						// no need to check channel2? since they come with a bundle
 
-						if(channel == nullptr ||channel2 == nullptr) {
+						if(channel == nullptr ||(channel2 == nullptr&&fSystemID==9000)) {
                             // simulation outputs detector numbers [0,15] but we want [1,16] for
                             // assigning mnemonics
                             if(fSystemID!=9000){
@@ -430,6 +431,7 @@ bool Converter::Run() {
 								case 50://PACES
 									mnemonic = Form("PAC%02dXN00A", fDetNumber);
 									fFragments[address].SetCfd(Cfd(EDigitizer::kGRF16));
+									std::cout<<"added PACES at address"<<mnemonic<<std::endl;
 									break;
 								case 8010://blue
 								case 8020://green
@@ -678,4 +680,3 @@ bool Converter::DescantNeutronDiscrimination() { // Assuming perfect gamma-neutr
 
 void Converter::PrintStatistics() {
 }
-
